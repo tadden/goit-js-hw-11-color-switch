@@ -7,6 +7,10 @@ const colors = [
   '#795548',
 ];
 
+function randomIntegerFromInterval(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
 const refs = {
   body: document.querySelector('body'),
   start: document.querySelector('[data-action="start"]'),
@@ -20,8 +24,7 @@ function startClick() {
    intervalId = setInterval(() => {
     refs.start.disabled = true;
     refs.reset.disabled = true;
-    let randomColor = colors[Math.floor(Math.random() * colors.length)];
-    refs.body.style.backgroundColor = randomColor
+    refs.body.style.backgroundColor = colors[randomIntegerFromInterval(0, colors.length - 1)]
   }, 1000)
 };
 
